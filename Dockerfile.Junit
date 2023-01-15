@@ -1,0 +1,5 @@
+FROM openjdk:17-jdk-slim AS JAVA
+FROM gradle:5.3.0-jdk-alpine AS GRADLE
+WORKDIR /app
+COPY server/socket.io/ .
+RUN gradle test
