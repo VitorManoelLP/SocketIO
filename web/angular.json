@@ -27,7 +27,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/sockjs-client/dist/sockjs.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -89,10 +91,15 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/sockjs-client/dist/sockjs.min.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "c0a49aa9-cf87-4838-8e65-0f193be79164"
   }
 }
