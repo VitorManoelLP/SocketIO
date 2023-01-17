@@ -1,6 +1,6 @@
-FROM openjdk:17-jdk-slim AS JAVA
-FROM gradle:5.3.0-jdk-alpine AS GRADLE
+FROM gradle:jdk17-jammy AS JAVA
+USER root
 WORKDIR /app
 COPY server/socket.io/ .
 ENV GRADLE_USER_HOME=~/gradle_2_3_cache/.gradle
-RUN gradle test
+RUN ./gradlew test
