@@ -1,10 +1,6 @@
 name: Pipeline Tests;
 
-on: 
- push:
-   branches:
-     - master
-     - branches
+on: push
 jobs:
   backend-suite:
     runs-on: ubuntu-latest
