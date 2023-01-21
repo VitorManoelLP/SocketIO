@@ -58,6 +58,6 @@ test {
         events "standardOut", "started", "passed", "skipped", "failed"
     }
     filter {
-        includeTestsMatching "com.socketio.socket.TestSuite*"
+        includeTestsMatching "TestSuite*"
     }
 }

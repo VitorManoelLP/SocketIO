@@ -1,32 +1,30 @@
 package com.socketio.socket.resource;
 
 import com.socketio.socket.service.MessagingService;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 
-public class SocketResourceTest {
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.verify;
 
-    @InjectMocks
-    private SocketResource resource;
-
-    private MockMvc mockMvc;
+public class MessagingServiceTest {
 
     private AutoCloseable closeable;
 
-    @Mock
+    @InjectMocks
     private MessagingService messagingService;
+
+    @Mock
+    private SimpMessagingTemplate simpMessagingTemplate;
 
     @BeforeEach
     public void setup() {
         closeable = MockitoAnnotations.openMocks(this);
-        this.mockMvc = MockMvcBuilders.standaloneSetup(resource).build();
     }
 
     @AfterEach
@@ -36,7 +34,8 @@ public class SocketResourceTest {
 
     @Test
     public void onSocket() {
-        Assertions.assertThat("").isEmpty();
+        messagingService.sendMessageOnTopic("topic", "message");
+        verify(simpMessagingTemplate, atLeastOnce()).convertAndSend("topic", "message");
     }
 
 }
