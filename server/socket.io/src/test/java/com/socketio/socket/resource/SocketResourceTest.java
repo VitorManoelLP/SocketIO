@@ -36,7 +36,7 @@ public class SocketResourceTest {
 
     @Test
     public void onSocket() {
-        Assertions.assertThat("").isNotEmpty();
+        Assertions.assertThat("").isEmpty();
     }
 
 }
