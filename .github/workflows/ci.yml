@@ -1,0 +1,11 @@
+name: Pipeline Tests;
+
+on: push
+jobs:
+  backend-suite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Backend -WebSocket Test/Build
+        run: docker build -f Dockerfile.Junit .
