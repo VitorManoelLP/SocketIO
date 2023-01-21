@@ -25,8 +25,8 @@ public class TestSuiteTest {
                 .stream().toList().forEach(clazz -> {
 
                     List<String> classes = Arrays.stream(clazz)
-                            .map(Class::getName).
-                            map(clazzName -> {
+                            .map(Class::getName)
+                            .map(clazzName -> {
                                 String[] split = clazzName.split("\\.");
                                 String name = split[split.length - 1];
                                 return name.concat(".java");
